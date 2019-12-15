@@ -1,8 +1,6 @@
 package cn.js.today.cms.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -17,10 +15,14 @@ import java.util.List;
  * @Version: v1.0
  */
 @Entity
-@Table(name = "js_cms_site")
+@Table(name = "js_cc_site")
 public class Site {
 
     private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id; 	// 栏目编码
 
     @Column(name = "site_code")
     private String siteCode; 	// 站点编码
@@ -52,6 +54,14 @@ public class Site {
     private List<String> categoryCodes;		//某角色下某站点下授权的栏目id集合
 
     private List<Category> categoryList;	//某站点下所有栏目集合
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getSiteCode() {
         return siteCode;

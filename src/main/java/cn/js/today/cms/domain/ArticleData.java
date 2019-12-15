@@ -1,8 +1,6 @@
 package cn.js.today.cms.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Simple to Introduction
@@ -16,10 +14,14 @@ import javax.persistence.Table;
  * @Version: v1.0
  */
 @Entity
-@Table(name = "js_cms_article_data")
+@Table(name = "js_cc_article_data")
 public class ArticleData {
 
     private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id; 	// 栏目编码
 
     @Column(name = "content")
     private String content; 		// 文章内容
@@ -31,6 +33,14 @@ public class ArticleData {
     private String isCanComment; 	// 是否允许评论
 
     private Extend extend; 			// 扩展字段
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getContent() {
         return content;

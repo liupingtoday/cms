@@ -1,8 +1,6 @@
 package cn.js.today.cms.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -18,17 +16,20 @@ import java.util.Date;
  * @Version: v1.0
  */
 @Entity
-@Table(name = "js_cms_article")
+@Table(name = "js_cc_article")
 public class Article {
 
     private static final long serialVersionUID = 1L;
 
     private Category category; 	// 栏目编码
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id; 	// 栏目编码
+
     @Column(name = "module_type")
     private String moduleType; 	// 模块类型
 
-    @NotNull
     @Column(name = "title")
     private String title; 		// 内容标题
 
@@ -80,6 +81,14 @@ public class Article {
     private Date endDate; 				// 结束时间
 
     private Boolean isQueryArticleData; // 是否查询文章内容
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Category getCategory() {
         return category;

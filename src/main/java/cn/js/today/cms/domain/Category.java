@@ -1,8 +1,6 @@
 package cn.js.today.cms.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Simple to Introduction
@@ -16,10 +14,14 @@ import javax.persistence.Table;
  * @Version: v1.0
  */
 @Entity
-@Table(name = "js_cms_category")
+@Table(name = "js_cc_category")
 public class Category {
 
     private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id; 	// 栏目编码
 
     @Column(name = "category_code")
     private String categoryCode; 	// 栏目编码
@@ -64,6 +66,14 @@ public class Category {
     private String isCanComment; 	// 是否允许评论
 
     private Extend extend; 			// 扩展字段
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getCategoryCode() {
         return categoryCode;

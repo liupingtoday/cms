@@ -1,5 +1,6 @@
 package cn.js.today.cms.service;
 
+import cn.js.today.cms.repository.ArticleRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -21,4 +22,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class ArticleService {
 
     private final Logger log = LoggerFactory.getLogger(ArticleService.class);
+
+    private final ArticleRepository articleRepository;
+
+    public ArticleService(ArticleRepository articleRepository) {
+        this.articleRepository = articleRepository;
+    }
+
 }
