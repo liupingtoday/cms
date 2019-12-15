@@ -53,6 +53,18 @@ public class Image {
 
     /**
      *  图片类型
+     *
+     *  表示图片真实的文件格式
+     *
+     * 1、jpg
+     *
+     * 2、png
+     *
+     * 3、gif
+     *
+     * 4、ico
+     *
+     * 5、webp
      */
     @Column(name = "type")
     private String type;
@@ -160,6 +172,24 @@ public class Image {
      */
     @Column(name = "updated_time")
     private Date updatedTime;
+
+    /**
+     * 备注
+     */
+    @Column(name = "remarks")
+    private String remarks;
+
+    /**
+     *  租户的编码
+     */
+    @Column(name = "corp_code")
+    private String corpCode;
+
+    /**
+     *  租户的名称
+     */
+    @Column(name = "corp_name")
+    private String corpName;
 
     public Long getId() {
         return id;
@@ -343,5 +373,29 @@ public class Image {
 
     public void setUpdatedTime(Date updatedTime) {
         this.updatedTime = updatedTime;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    public String getCorpCode() {
+        return corpCode;
+    }
+
+    public void setCorpCode(String corpCode) {
+        this.corpCode = corpCode;
+    }
+
+    public String getCorpName() {
+        return corpName;
+    }
+
+    public void setCorpName(String corpName) {
+        this.corpName = corpName;
     }
 }
