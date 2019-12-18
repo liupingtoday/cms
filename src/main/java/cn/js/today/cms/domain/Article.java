@@ -16,7 +16,7 @@ import java.util.Date;
  * @Version: v1.0
  */
 @Entity
-@Table(name = "js_cc_article")
+@Table(name = "cms_article")
 public class Article {
 
     private static final long serialVersionUID = 1L;
